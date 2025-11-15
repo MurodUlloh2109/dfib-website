@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DFIB – Davlat Farmakopeyasi</title>
+  <title>DFIB – O‘zbekiston Davlat Farmakopeyasi</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --primary: #065f46;    /* to‘q yashil */
-      --secondary: #10b981;  /* yashil */
-      --accent: #34d399;     /* och yashil */
+      --primary: #065f46;
+      --secondary: #10b981;
+      --accent: #34d399;
       --dark: #1f2937;
       --light: #f0fdf4;
       --gray: #6b7280;
@@ -18,42 +18,44 @@
     body { font-family: 'Inter', sans-serif; background: var(--light); }
     .header { background: var(--primary); }
     .nav-link { @apply transition-colors duration-300; }
-    .nav-link:hover { @apply text-var(--accent); }
-    .hero { background: linear-gradient(rgba(6,95,70,0.8), rgba(6,95,70,0.8)), url('https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; }
-    .card { @apply transition-all duration-300 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2; }
+    .nav-link:hover { @apply text-white; }
+    .hero { 
+      background: linear-gradient(rgba(6,95,70,0.85), rgba(6,95,70,0.85)), 
+                  url('https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
+    }
+    .card { @apply transition-all duration-300 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1; }
     .footer-link { @apply hover:text-var(--accent) transition-colors; }
+    .table-row:hover { @apply bg-green-50; }
   </style>
 </head>
-<body class="text-var(--dark)">
+<body class="text-[var(--dark)]">
 
   <!-- HEADER -->
   <header class="header text-white">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center text-sm">
-      <div class="flex space-x-6 opacity-80">
-        <span>15 noyabr 2025</span>
+    <div class="container mx-auto px-6 py-3 flex flex-col sm:flex-row justify-between items-center text-sm gap-3">
+      <div class="flex flex-wrap items-center gap-6 opacity-80">
+        <span id="current-date">15 noyabr 2025</span>
         <a href="#" class="footer-link">Sog‘liqni saqlash vazirligi</a>
       </div>
-      <div class="flex items-center space-x-4">
-        <select class="bg-transparent border border-white/30 rounded px-3 py-1 text-xs">
+      <div class="flex items-center gap-4">
+        <select class="bg-transparent border border-white/30 rounded px-3 py-1 text-xs focus:outline-none focus:border-white">
           <option>O'zbekcha</option>
           <option>Русский</option>
           <option>English</option>
         </select>
-        <a href="termin/login.html" class="bg-var(--accent) text-var(--primary) px-4 py-1.5 rounded font-medium text-xs hover:bg-green-300 transition">
+        <a href="termin/login.html" class="bg-white text-[var(--primary)] px-4 py-1.5 rounded font-medium text-xs hover:bg-green-50 transition">
           Kirish
         </a>
       </div>
     </div>
-
     <div class="border-t border-white/20"></div>
-
-    <div class="container mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center space-x-4">
+    <div class="container mx-auto px-6 py-5 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
         <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
-          <span class="text-var(--primary) font-bold text-2xl">DFIB</span>
+          <span class="text-[var(--primary)] font-bold text-2xl">DFIB</span>
         </div>
         <div>
-          <h1 class="text-2xl font-bold">Davlat Farmakopeyasini Ishlab Chiqish Bo‘limi</h1>
+          <h1 class="text-xl lg:text-2xl font-bold">Davlat Farmakopeyasini Ishlab Chiqish Bo‘limi</h1>
           <p class="text-xs opacity-80">O‘zbekiston Respublikasi Sog‘liqni saqlash vazirligi</p>
         </div>
       </div>
@@ -62,106 +64,175 @@
         <a href="bo'lim/haqida.html" class="nav-link">Bo‘lim</a>
         <a href="nashrlar/1-nashr.html" class="nav-link">Nashrlar</a>
         <a href="yutuqlar/yutuqlar.html" class="nav-link">Yutuqlar</a>
-        <a href="saytdan-qidirish/" class="nav-link text-var(--accent) font-bold">Qidiruv</a>
-        <a href="yangiliklar/" class="nav-link">Yangiliklar</a>
-        <a href="aloqa/" class="nav-link">Aloqa</a>
+        <a href="saytdan-qidirish/index.html" class="nav-link text-[var(--accent)] font-bold">Qidiruv</a>
+        <a href="yangiliklar/index.html" class="nav-link">Yangiliklar</a>
+        <a href="aloqa/index.html" class="nav-link">Aloqa</a>
+      </nav>
+      <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[var(--primary)] px-6 pb-4">
+      <nav class="flex flex-col space-y-3 text-sm font-medium">
+        <a href="#" class="nav-link py-2">Bosh sahifa</a>
+        <a href="bo'lim/haqida.html" class="nav-link py-2">Bo‘lim</a>
+        <a href="nashrlar/1-nashr.html" class="nav-link py-2">Nashrlar</a>
+        <a href="yutuqlar/yutuqlar.html" class="nav-link py-2">Yutuqlar</a>
+        <a href="saytdan-qidirish/index.html" class="nav-link text-[var(--accent)] font-bold py-2">Qidiruv</a>
+        <a href="yangiliklar/index.html" class="nav-link py-2">Yangiliklar</a>
+        <a href="aloqa/index.html" class="nav-link py-2">Aloqa</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero py-32 text-white text-center">
     <div class="container mx-auto px-6">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
         O‘zbekiston Davlat Farmakopeyasi
       </h1>
-      <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90">
         Farmatsevtika mahsulotlari sifati va xavfsizligini ta'minlash uchun rasmiy standartlar
       </p>
-      <div class="flex justify-center space-x-6">
-        <a href="saytdan-qidirish/" class="bg-var(--accent) text-var(--primary) px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="saytdan-qidirish/index.html" class="bg-[var(--accent)] text-[var(--primary)] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
           Saytdan qidirish
         </a>
-        <a href="nashrlar/1-nashr.html" class="bg-white text-var(--primary) px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
+        <a href="nashrlar/1-nashr.html" class="bg-white text-[var(--primary)] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
           So‘nggi nashr
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER BO‘LIMLARI (SIZNING TALABINGIZ) -->
-  <footer class="bg-var(--primary) text-white py-16">
+  <!-- YANGI BO‘LIMLAR: ONLAYN KIRISH + NASHR JADVALI (OQ FON) -->
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="grid md:grid-cols-2 gap-10">
 
-        <!-- 1. Yangiliklar -->
-        <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Yangiliklar</h3>
-          <ul class="space-y-2 text-sm opacity-80">
-            <li><a href="yangiliklar/" class="footer-link">12-nashr onlayn versiyasi ishga tushdi</a></li>
-            <li><a href="#" class="footer-link">Yangi monografiyalar qo‘shildi</a></li>
-          </ul>
-        </div>
-
-        <!-- 2. So‘nggi nashr -->
-        <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">So‘nggi nashr</h3>
-          <p class="text-sm opacity-80">1-nashr (2025)</p>
-          <a href="nashrlar/1-nashr.html" class="text-var(--accent) text-sm font-medium hover:underline">Batafsil →</a>
-        </div>
-
-        <!-- 3. Onlayn kirish -->
-        <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Onlayn kirish</h3>
-          <p class="text-sm opacity-80 mb-2">Farmakopeyaga bepul kirish</p>
-          <a href="saytdan-qidirish/" class="bg-var(--accent) text-var(--primary) px-4 py-2 rounded text-sm font-medium hover:bg-green-300 transition">
-            Kirish
+        <!-- 1. Onlayn kirish -->
+        <div class="card bg-gradient-to-br from-green-50 to-emerald-50 p-8 border border-green-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[var(--primary)]">O‘zbekiston Davlat Farmakopeyasiga onlayn kirish</h3>
+              <p class="text-sm text-gray-600 mt-1">Barcha monografiyalar, standartlar va qo‘shimchalar bepul mavjud</p>
+            </div>
+          </div>
+          <a href="saytdan-qidirish/index.html" class="inline-block bg-[var(--primary)] text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition">
+            Onlayn kirish
           </a>
         </div>
 
-        <!-- 4. Nashr jadvali -->
-        <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Nashr jadvali</h3>
-          <div class="text-xs space-y-1 opacity-80">
-            <div class="flex justify-between"><span>1-nashr</span><span class="text-var(--accent)">2025</span></div>
-            <div class="flex justify-between"><span>2-nashr</span><span class="text-yellow-400">2026</span></div>
+        <!-- 2. Nashr jadvali -->
+        <div class="card bg-gradient-to-br from-emerald-50 to-teal-50 p-8 border border-emerald-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-[var(--secondary)] rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[var(--primary)]">Nashr jadvali</h3>
+              <p class="text-sm text-gray-600 mt-1">Davlat Farmakopeyasi nashrlari va ularning holati</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <table class="w-full text-sm">
+              <thead class="bg-[var(--primary)] text-white">
+                <tr>
+                  <th class="px-4 py-3 text-left">Nashr</th>
+                  <th class="px-4 py-3 text-left">Yil</th>
+                  <th class="px-4 py-3 text-left">Holati</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row border-b">
+                  <td class="px-4 py-3">1-nashr</td>
+                  <td class="px-4 py-3">2025</td>
+                  <td class="px-4 py-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Faol</span></td>
+                </tr>
+                <tr class="table-row">
+                  <td class="px-4 py-3">2-nashr</td>
+                  <td class="px-4 py-3">2026</td>
+                  <td class="px-4 py-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">Tayyorlanmoqda</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- 5. Sotuv ma'lumotlari -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[var(--primary)] text-white py-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- Yangiliklar -->
         <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Sotuv ma'lumotlari</h3>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Yangiliklar</h3>
+          <ul class="space-y-2 text-sm opacity-80">
+            <li><a href="yangiliklar/index.html" class="footer-link">12-nashr onlayn versiyasi ishga tushdi</a></li>
+            <li><a href="#" class="footer-link">Yangi monografiyalar qo‘shildi</a></li>
+          </ul>
+        </div>
+        <!-- So‘nggi nashr -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">So‘nggi nashr</h3>
+          <p class="text-sm opacity-80">1-nashr (2025)</p>
+          <a href="nashrlar/1-nashr.html" class="text-[var(--accent)] text-sm font-medium hover:underline">Batafsil →</a>
+        </div>
+        <!-- Onlayn kirish -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Onlayn kirish</h3>
+          <p class="text-sm opacity-80 mb-2">Farmakopeyaga bepul kirish</p>
+          <a href="saytdan-qidirish/index.html" class="bg-[var(--accent)] text-[var(--primary)] px-4 py-2 rounded text-sm font-medium hover:bg-green-300 transition">
+            Kirish
+          </a>
+        </div>
+        <!-- Nashr jadvali -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Nashr jadvali</h3>
+          <div class="text-xs space-y-1 opacity-80">
+            <div class="flex justify-between"><span>1-nashr</span><span class="text-[var(--accent)]">2025</span></div>
+            <div class="flex justify-between"><span>2-nashr</span><span class="text-yellow-400">2026</span></div>
+          </div>
+        </div>
+        <!-- Qo‘shimcha bo‘limlar -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Sotuv ma'lumotlari</h3>
           <ul class="text-sm opacity-80 space-y-1">
             <li><a href="#" class="footer-link">Narxlar ro‘yxati</a></li>
             <li><a href="#" class="footer-link">Buyurtma berish</a></li>
           </ul>
         </div>
-
-        <!-- 6. Malaka oshirish -->
         <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Malaka oshirish</h3>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Malaka oshirish</h3>
           <p class="text-sm opacity-80">Xodimlar uchun kurslar</p>
-          <a href="yutuqlar/malaka.html" class="text-var(--accent) text-sm font-medium hover:underline">Kurslar →</a>
+          <a href="yutuqlar/malaka.html" class="text-[var(--accent)] text-sm font-medium hover:underline">Kurslar →</a>
         </div>
-
-        <!-- 7. Foydali manbalar -->
         <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Foydali manbalar</h3>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Foydali manbalar</h3>
           <ul class="text-sm opacity-80 space-y-1">
             <li><a href="#" class="footer-link">WHO standartlari</a></li>
             <li><a href="#" class="footer-link">ICH qo‘llanmalari</a></li>
           </ul>
         </div>
-
-        <!-- 8. Media -->
         <div>
-          <h3 class="text-lg font-bold mb-4 text-var(--accent)">Media</h3>
+          <h3 class="text-lg font-bold mb-4 text-[var(--accent)]">Media</h3>
           <p class="text-sm opacity-80">Video, foto, infografika</p>
-          <a href="#" class="text-var(--accent) text-sm font-medium hover:underline">Ko‘rish →</a>
+          <a href="#" class="text-[var(--accent)] text-sm font-medium hover:underline">Ko‘rish →</a>
         </div>
-
       </div>
-
       <div class="border-t border-white/20 mt-12 pt-6 text-center text-sm opacity-80">
         <p>© 2025 Davlat Farmakopeyasini Ishlab Chiqish Bo‘limi. Barcha huquqlar himoyalangan.</p>
         <p class="mt-1">Toshkent, O‘zbekiston</p>
@@ -169,5 +240,19 @@
     </div>
   </footer>
 
+  <!-- JS: Sana yangilash + Mobil menu -->
+  <script>
+    // Sana avtomatik yangilash
+    const dateElement = document.getElementById('current-date');
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.textContent = now.toLocaleDateString('uz-UZ', options);
+
+    // Mobil menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
